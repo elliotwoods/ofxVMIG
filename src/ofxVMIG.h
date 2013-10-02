@@ -3,3 +3,4 @@
 #include "ofxVMIG/Module.h"
 #include "ofxVMIG/ModuleHost.h"
 #include "ofxVMIG/Inspector.h"
+#include "ofxVMIG/Settings.h"

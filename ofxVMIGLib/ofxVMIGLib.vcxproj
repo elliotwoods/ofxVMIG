@@ -46,7 +46,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\src;..\..\..\addons\ofxVideoHubControl\src;..\..\..\addons\ofxLiquidEvent\src;..\..\..\addons\ofxUI\src;..\..\..\addons\ofxCvGui2\src;..\..\..\addons\ofxBlackmagic2\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxNetwork\src;..\..\..\addons\ofxXmlSettings\src;..\..\..\addons\ofxJSON\libs\jsoncpp\include;..\..\..\addons\ofxJSON\src;..\src;..\..\..\addons\ofxVideoHubControl\src;..\..\..\addons\ofxLiquidEvent\src;..\..\..\addons\ofxUI\src;..\..\..\addons\ofxCvGui2\src;..\..\..\addons\ofxBlackmagic2\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4250</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -60,7 +60,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\src;..\..\..\addons\ofxVideoHubControl\src;..\..\..\addons\ofxLiquidEvent\src;..\..\..\addons\ofxUI\src;..\..\..\addons\ofxCvGui2\src;..\..\..\addons\ofxBlackmagic2\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\addons\ofxNetwork\src;..\..\..\addons\ofxXmlSettings\src;..\..\..\addons\ofxJSON\libs\jsoncpp\include;..\..\..\addons\ofxJSON\src;..\src;..\..\..\addons\ofxVideoHubControl\src;..\..\..\addons\ofxLiquidEvent\src;..\..\..\addons\ofxUI\src;..\..\..\addons\ofxCvGui2\src;..\..\..\addons\ofxBlackmagic2\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4250</DisableSpecificWarnings>
     </ClCompile>
     <Link>
@@ -70,18 +70,51 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\autolink.h" />
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\config.h" />
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\features.h" />
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\forwards.h" />
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\json.h" />
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\reader.h" />
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\value.h" />
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\writer.h" />
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\src\json_batchallocator.h" />
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\src\json_tool.h" />
+    <ClInclude Include="..\..\ofxJSON\src\ofxJSONElement.h" />
+    <ClInclude Include="..\..\ofxNetwork\src\ofxNetwork.h" />
+    <ClInclude Include="..\..\ofxNetwork\src\ofxNetworkUtils.h" />
+    <ClInclude Include="..\..\ofxNetwork\src\ofxTCPClient.h" />
+    <ClInclude Include="..\..\ofxNetwork\src\ofxTCPManager.h" />
+    <ClInclude Include="..\..\ofxNetwork\src\ofxTCPServer.h" />
+    <ClInclude Include="..\..\ofxNetwork\src\ofxUDPManager.h" />
     <ClInclude Include="..\..\ofxVideoHubControl\src\ofxVideoHubControl.h" />
     <ClInclude Include="..\src\ofxVMIG.h" />
     <ClInclude Include="..\src\ofxVMIG\Inspector.h" />
     <ClInclude Include="..\src\ofxVMIG\Module.h" />
     <ClInclude Include="..\src\ofxVMIG\ModuleHost.h" />
     <ClInclude Include="..\src\ofxVMIG\Modules\VideoMatrix.h" />
+    <ClInclude Include="..\src\ofxVMIG\Settings.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\ofxJSON\libs\jsoncpp\src\json_reader.cpp" />
+    <ClCompile Include="..\..\ofxJSON\libs\jsoncpp\src\json_value.cpp" />
+    <ClCompile Include="..\..\ofxJSON\libs\jsoncpp\src\json_writer.cpp" />
+    <ClCompile Include="..\..\ofxJSON\src\ofxJSONElement.cpp" />
+    <ClCompile Include="..\..\ofxNetwork\src\ofxTCPClient.cpp" />
+    <ClCompile Include="..\..\ofxNetwork\src\ofxTCPManager.cpp" />
+    <ClCompile Include="..\..\ofxNetwork\src\ofxTCPServer.cpp" />
+    <ClCompile Include="..\..\ofxNetwork\src\ofxUDPManager.cpp" />
     <ClCompile Include="..\..\ofxVideoHubControl\src\ofxVideoHubControl.cpp" />
     <ClCompile Include="..\src\ofxVMIG\Inspector.cpp" />
     <ClCompile Include="..\src\ofxVMIG\ModuleHost.cpp" />
     <ClCompile Include="..\src\ofxVMIG\Modules\VideoMatrix.cpp" />
+    <ClCompile Include="..\src\ofxVMIG\Settings.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\ofxJSON\libs\jsoncpp\src\json_internalarray.inl" />
+    <None Include="..\..\ofxJSON\libs\jsoncpp\src\json_internalmap.inl" />
+    <None Include="..\..\ofxJSON\libs\jsoncpp\src\json_valueiterator.inl" />
+    <None Include="..\..\ofxJSON\libs\jsoncpp\src\sconscript" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

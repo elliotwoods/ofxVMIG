@@ -1,5 +1,7 @@
 #pragma once
+#include "ofxBlackMagic.h"
 #include "ofxVMIG/Module.h"
+#include "ofxVideoHubControl.h"
 
 namespace ofxVMIG {
 	namespace Modules {
@@ -9,6 +11,9 @@ namespace ofxVMIG {
 			void draw(float width, float height) override;
 			void populateInspector(ofxUICanvas &canvas) override;
 			void inspectorCallback(ofxUIEventArgs &args) override;
+		protected:
+			ofxBlackmagic::Input inputs[4];
+			ofxVideoHubControl videoHub;
 		};
 	}
 }

@@ -1,6 +1,6 @@
 #pragma once
 #include "ofxCvGui/Panels/Base.h"
-#include "ofxUICanvas.h"
+#include "ofxUI.h"
 #include "Module.h"
 
 namespace ofxVMIG {
