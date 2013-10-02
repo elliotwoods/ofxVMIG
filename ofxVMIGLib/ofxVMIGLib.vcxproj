@@ -89,6 +89,7 @@
     <ClInclude Include="..\..\ofxNetwork\src\ofxUDPManager.h" />
     <ClInclude Include="..\..\ofxVideoHubControl\src\ofxVideoHubControl.h" />
     <ClInclude Include="..\src\ofxVMIG.h" />
+    <ClInclude Include="..\src\ofxVMIG\Inspectable.h" />
     <ClInclude Include="..\src\ofxVMIG\Inspector.h" />
     <ClInclude Include="..\src\ofxVMIG\Module.h" />
     <ClInclude Include="..\src\ofxVMIG\ModuleHost.h" />

@@ -12,4 +12,10 @@ namespace ofxVMIG {
 			this->module.draw(this->getWidth(), this->getHeight());
 		};
 	}
+
+	//----------
+	ofxCvGui::PanelPtr makePanel(Module& module) {
+		ofxCvGui::PanelPtr newPanel = ofxCvGui::PanelPtr(new ModuleHost(module));
+		return newPanel;
+	}
 }

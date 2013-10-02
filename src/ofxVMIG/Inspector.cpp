@@ -28,7 +28,7 @@ namespace ofxVMIG {
 	}
 
 	//----------
-	void Inspector::setFocus(Module& module) {
+	void Inspector::setFocus(Inspectable& module) {
 		this->clearFocus();
 		this->widgets.addLabel("Inspector", "Inspector", 0);
 		this->widgets.addSpacer();

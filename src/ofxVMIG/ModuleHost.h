@@ -9,4 +9,6 @@ namespace ofxVMIG {
 	protected:
 		Module& module;
 	};
+
+	ofxCvGui::PanelPtr makePanel(Module&);
 }

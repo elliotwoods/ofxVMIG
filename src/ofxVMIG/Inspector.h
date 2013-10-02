@@ -1,19 +1,19 @@
 #pragma once
 #include "ofxCvGui/Panels/Base.h"
 #include "ofxUI.h"
-#include "Module.h"
+#include "Inspectable.h"
 
 namespace ofxVMIG {
 	class Inspector : public ofxCvGui::Panels::Base {
 	public:
 		Inspector();
-		void setFocus(Module&);
+		void setFocus(Inspectable&);
 		void clearFocus();
 	protected:
 		void mouse(ofxCvGui::MouseArguments&);
 		void boundsChange(ofxCvGui::BoundsChangeArguments&);
 		void onUIChange(ofxUIEventArgs&);
 		ofxUICanvas widgets;
-		Module* focused;
+		Inspectable* focused;
 	};
 }
