@@ -21,7 +21,7 @@ namespace ofxVMIG {
 			ofBeginShape();
 			ofVertex(0,32);
 			for(int x=0; x<64; x+=2) {
-				position = ofMap(x, 0, 64, -1.0f, 1.0f);
+				position = ofMap(x, 0, 63, -1.0f, 1.0f);
 				this->crossfade(position, A, B);
 				ofVertex(x, 32.0f - A * 32.0f);
 			}
@@ -32,7 +32,7 @@ namespace ofxVMIG {
 			ofBeginShape();
 			ofVertex(0,32);
 			for(int x=0; x<64; x+=2) {
-				position = ofMap(x, 0, 64, -1.0f, 1.0f);
+				position = ofMap(x, 0, 63, -1.0f, 1.0f);
 				this->crossfade(position, A, B);
 				ofVertex(x, 32.0f + B * 32.0f);
 			}
