@@ -24,7 +24,11 @@ namespace ofxVMIG {
 		};
 
 		ofAddListener(this->widgets.newGUIEvent, this, &Inspector::onUIChange);
-		this->focused = 0;
+
+		this->clearFocus();
+		this->widgets.addLabel("Inspector", "Inspector", 0);
+		this->widgets.addSpacer();
+		this->widgets.addSpacer();
 	}
 
 	//----------

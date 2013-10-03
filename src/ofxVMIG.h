@@ -6,3 +6,4 @@
 #include "ofxVMIG/Settings.h"
 
 #include "ofxVMIG/Modules/VideoMatrix.h"
+#include "ofxVMIG/Modules/Crossfader.h"
