@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="addons">
+      <UniqueIdentifier>{fdd99b6d-af27-482e-a38b-05bdcbf20e10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON">
+      <UniqueIdentifier>{2b37b3d2-17c8-4745-bd34-6ba2b98fdc0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\src">
+      <UniqueIdentifier>{6313999d-5b4a-4f20-8e61-fcfc04b0f158}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\libs">
+      <UniqueIdentifier>{966edc8a-6deb-48b5-828b-ba0b7c3ade9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\libs\jsoncpp">
+      <UniqueIdentifier>{d4bf0f7d-89eb-478f-8100-0092badfe5a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\libs\jsoncpp\include">
+      <UniqueIdentifier>{6e187ed2-0c5d-41db-b38c-e0d4ed6a6726}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\libs\jsoncpp\include\json">
+      <UniqueIdentifier>{3f540e5f-aeee-47b7-a274-bb07545b8c42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxJSON\libs\jsoncpp\src">
+      <UniqueIdentifier>{d2d2877a-1936-4e44-84ab-7bdf045085a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{05e170c2-052f-4ad4-9661-9bf5c68ec2a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ofxVMIG">
+      <UniqueIdentifier>{7e14b3ab-0ed1-496b-91f5-767c2d8f35f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ofxVMIG\Modules">
+      <UniqueIdentifier>{f67a3d8c-1081-4744-a030-07b680510898}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxVideoHubControl">
+      <UniqueIdentifier>{b14b1eeb-8cbd-4ef5-b96e-e8b9d3521436}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxVideoHubControl\src">
+      <UniqueIdentifier>{90d731dc-4ae4-4d01-8aa9-daf78c0286d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNetwork">
+      <UniqueIdentifier>{0e2689d7-6143-4eba-906a-de8b8c31a4ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxNetwork\src">
+      <UniqueIdentifier>{55ea2ab2-1ce9-46ae-9600-266716f3eb8a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\ofxJSON\src\ofxJSONElement.h">
+      <Filter>addons\ofxJSON\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\value.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\writer.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\autolink.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\config.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\features.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\forwards.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\json.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\include\json\reader.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\include\json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\src\json_batchallocator.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxJSON\libs\jsoncpp\src\json_tool.h">
+      <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxVMIG.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxVMIG\Module.h">
+      <Filter>src\ofxVMIG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxVMIG\ModuleHost.h">
+      <Filter>src\ofxVMIG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxVMIG\Settings.h">
+      <Filter>src\ofxVMIG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxVMIG\Inspectable.h">
+      <Filter>src\ofxVMIG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxVMIG\Inspector.h">
+      <Filter>src\ofxVMIG</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxVMIG\Modules\VideoMatrix.h">
+      <Filter>src\ofxVMIG\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\ofxVMIG\Modules\Crossfader.h">
+      <Filter>src\ofxVMIG\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxVideoHubControl\src\ofxVideoHubControl.h">
+      <Filter>addons\ofxVideoHubControl\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxNetwork\src\ofxUDPManager.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxNetwork\src\ofxNetwork.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxNetwork\src\ofxNetworkUtils.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxNetwork\src\ofxTCPClient.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxNetwork\src\ofxTCPManager.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ofxNetwork\src\ofxTCPServer.h">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\ofxJSON\src\ofxJSONElement.cpp">
+      <Filter>addons\ofxJSON\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxJSON\libs\jsoncpp\src\json_reader.cpp">
+      <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxJSON\libs\jsoncpp\src\json_value.cpp">
+      <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxJSON\libs\jsoncpp\src\json_writer.cpp">
+      <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ofxVMIG\ModuleHost.cpp">
+      <Filter>src\ofxVMIG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ofxVMIG\Settings.cpp">
+      <Filter>src\ofxVMIG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ofxVMIG\Inspector.cpp">
+      <Filter>src\ofxVMIG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ofxVMIG\Modules\VideoMatrix.cpp">
+      <Filter>src\ofxVMIG\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ofxVMIG\Modules\Crossfader.cpp">
+      <Filter>src\ofxVMIG\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxVideoHubControl\src\ofxVideoHubControl.cpp">
+      <Filter>addons\ofxVideoHubControl\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxNetwork\src\ofxUDPManager.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxNetwork\src\ofxTCPClient.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxNetwork\src\ofxTCPManager.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ofxNetwork\src\ofxTCPServer.cpp">
+      <Filter>addons\ofxNetwork\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\ofxJSON\libs\jsoncpp\src\sconscript">
+      <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
+    </None>
+    <None Include="..\..\ofxJSON\libs\jsoncpp\src\json_internalarray.inl">
+      <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
+    </None>
+    <None Include="..\..\ofxJSON\libs\jsoncpp\src\json_internalmap.inl">
+      <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
+    </None>
+    <None Include="..\..\ofxJSON\libs\jsoncpp\src\json_valueiterator.inl">
+      <Filter>addons\ofxJSON\libs\jsoncpp\src</Filter>
+    </None>
+  </ItemGroup>
+</Project>

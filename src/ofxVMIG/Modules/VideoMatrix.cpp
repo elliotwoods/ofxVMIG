@@ -28,6 +28,7 @@ namespace ofxVMIG {
 			};
 
 			if (!modeListInitialised) {
+				//should use IDeckLinkInput::DoesSupportVideoMode to check
 				ADD_MODE(bmdModeNTSC);
 				ADD_MODE(bmdModeNTSC2398);
 				ADD_MODE(bmdModePAL);
@@ -41,9 +42,9 @@ namespace ofxVMIG {
 				ADD_MODE(bmdModeHD1080i50);
 				ADD_MODE(bmdModeHD1080i5994);
 				ADD_MODE(bmdModeHD1080i6000);
-				ADD_MODE(bmdModeHD1080p50);
-				ADD_MODE(bmdModeHD1080p5994);
-				ADD_MODE(bmdModeHD1080p6000);
+				//ADD_MODE(bmdModeHD1080p50);
+				//ADD_MODE(bmdModeHD1080p5994);
+				//ADD_MODE(bmdModeHD1080p6000);
 				ADD_MODE(bmdModeHD720p50);
 				ADD_MODE(bmdModeHD720p5994);
 				ADD_MODE(bmdModeHD720p60);
@@ -119,6 +120,11 @@ namespace ofxVMIG {
 			}
 		}
 
+		//----------
+		string Channel::getModeString() {
+			return this->mode;
+		}
+
 #pragma mark VideoMatrix
 		void drawMarker(string label, float x) {
 			const float y = 30;
@@ -187,26 +193,26 @@ namespace ofxVMIG {
 				}
 			};
 
-			auto takeRecordDeckButton = this->elementGroup->addBlank();
-			takeRecordDeckButton->onDraw += [this] (DrawArguments& args) {
+			auto takeVideoWallButton = this->elementGroup->addBlank();
+			takeVideoWallButton->onDraw += [this] (DrawArguments& args) {
 				ofPushStyle();
-				if (this->selectionRecordDeck == this->selectionPreview) {
+				if (this->selectionVideoWall == this->selectionPreview) {
 					ofFill();
 					ofSetColor(10, 10, 50);
 					ofRect(0,0,args.parentBounds.getWidth(), args.parentBounds.getHeight());
 				}
 				ofPopStyle();
-				AssetRegister.drawText("Take Record Deck", 0, 0, "", false, VMIG_VIDEO_MATRIX_TAKE_HEIGHT, 200);
+				AssetRegister.drawText("Take Video Wall", 0, 0, "", false, VMIG_VIDEO_MATRIX_TAKE_HEIGHT, 200);
 			};
-			takeRecordDeckButton->onMouse += [this] (MouseArguments& args) {
+			takeVideoWallButton->onMouse += [this] (MouseArguments& args) {
 				if (args.isLocalPressed()) {
-					this->setRecordDeck(this->selectionPreview);
+					this->setVideoWall(this->selectionPreview);
 				}
 			};
 			//
 			//--
 
-			this->onBoundsChange += [this, takeAButton, takeBButton, takeRecordDeckButton] (BoundsChangeArguments& args) {
+			this->onBoundsChange += [this, takeAButton, takeBButton, takeVideoWallButton] (BoundsChangeArguments& args) {
 				const int itemCount = this->channels.size();
 				float width = this->getWidth();
 				float height = this->getHeight() - VMIG_VIDEO_MATRIX_TAKE_HEIGHT;
@@ -233,7 +239,7 @@ namespace ofxVMIG {
 
 				takeAButton->setBounds(ofRectangle(200, this->getHeight() - VMIG_VIDEO_MATRIX_TAKE_HEIGHT, 100, VMIG_VIDEO_MATRIX_TAKE_HEIGHT));
 				takeBButton->setBounds(ofRectangle(300, this->getHeight() - VMIG_VIDEO_MATRIX_TAKE_HEIGHT, 100, VMIG_VIDEO_MATRIX_TAKE_HEIGHT));
-				takeRecordDeckButton->setBounds(ofRectangle(400, this->getHeight() - VMIG_VIDEO_MATRIX_TAKE_HEIGHT, 200, VMIG_VIDEO_MATRIX_TAKE_HEIGHT));
+				takeVideoWallButton->setBounds(ofRectangle(400, this->getHeight() - VMIG_VIDEO_MATRIX_TAKE_HEIGHT, 200, VMIG_VIDEO_MATRIX_TAKE_HEIGHT));
 			};
 
 			this->onUpdate += [this] (UpdateArguments&) {
@@ -293,10 +299,10 @@ namespace ofxVMIG {
 						ofPopStyle();
 					}
 
-					if(this->selectionRecordDeck == i) {
+					if(this->selectionVideoWall == i) {
 						ofPushStyle();
 						ofSetColor(10,10,50);
-						drawMarker("R", 160);
+						drawMarker("W", 160);
 						ofSetColor(100,100,200);
 						ofNoFill();
 						ofSetLineWidth(1.0f);
@@ -312,16 +318,23 @@ namespace ofxVMIG {
 					if (i == this->selectionB) {
 						this->inputs[1]->setMode(mode);
 					}
+					this->needsSave = true;
 				};
 			}
 
 			this->channelInC = -1;
 			this->channelInD = -1;
 
-			this->setA(8);
-			this->setB(9);
-			this->setPreview(8);
-			this->setRecordDeck(8);
+			if (!this->readbackConnections()) {
+				//failed to read routing from videohub
+				this->setA(8);
+				this->setB(9);
+				this->setPreview(this->selectionA);
+				this->setVideoWall(this->selectionA);
+			}
+
+			this->load();
+			this->needsSave = false;
 		}
 
 		//----------
@@ -339,12 +352,17 @@ namespace ofxVMIG {
 				input->update();
 			}
 
+
+			//--
+			//channel scroll
+			//--
+			//
 			int tick = ofGetElapsedTimef() / VMIG_CHANNEL_SCROLL_TIME;
 			tick = tick % (VMIG_CHANNEL_COUNT / 2);
 			int newChannelInC =  (tick * 2) % VMIG_CHANNEL_COUNT;
 			int newChannelInD = (tick * 2 + 1) % VMIG_CHANNEL_COUNT;
 
-			//this could be coded better, go on then!!
+			
 			if (newChannelInC != this->channelInC) {
 				if (this->channelInC >= 0) {
 					this->channels[this->channelInC]->setPreview(this->inputs[2]->getTextureReference());
@@ -358,6 +376,14 @@ namespace ofxVMIG {
 				}
 				this->setD(newChannelInD);
 				this->channelInD = newChannelInD;
+			}
+			//
+			//--
+
+
+			if (this->needsSave) {
+				this->save();
+				this->needsSave = false;
 			}
 		}
 
@@ -407,9 +433,63 @@ namespace ofxVMIG {
 		}
 
 		//----------
-		void VideoMatrix::setRecordDeck(int channel) {
-			this->videoHub.setRoute(VMIG_RECORD_CHANNEL, channel);
-			this->selectionRecordDeck = channel;
+		void VideoMatrix::setVideoWall(int channel) {
+			this->videoHub.setRoute(VMIG_VIDEO_WALL_CHANNEL, channel);
+			this->selectionVideoWall = channel;
+		}
+
+		//----------
+		bool VideoMatrix::readbackConnections() {
+			//send some data, so we have a local cache of routing
+			this->videoHub.setRoute(39, 39);
+			while (!this->videoHub.isRoutingUpdate()) {
+				this->videoHub.update();
+				ofSleepMillis(1);
+			}
+			auto routing = this->videoHub.getRoutingMatrix();
+			if (routing.empty()) {
+				return false;
+			}
+			this->selectionA = routing[0];
+			this->selectionB = routing[1];
+			this->selectionPreview = routing[VMIG_PREVIEW_CHANNEL];
+			this->selectionVideoWall = routing[VMIG_VIDEO_WALL_CHANNEL];
+		}
+
+		//----------
+		void VideoMatrix::save() const {
+			ofstream file;
+			file.open(ofToDataPath("channelFormats.txt").c_str(), ios::out);
+			for (int i=0; i<this->channels.size(); i++) {
+				auto channel = this->channels[i];
+				file << channel->getModeString() << endl;
+			}
+			file.close();
+		}
+
+		//----------
+		void VideoMatrix::load() {
+			ifstream file;
+			file.open(ofToDataPath("channelFormats.txt").c_str(), ios::in);
+			try {
+				if (file.bad()) {
+					throw(std::exception("File open failed"));
+				}
+				for (int i=0; i<this->channels.size(); i++) {
+					string mode;
+					file >> mode;
+					if (file.eof()) {
+						throw(std::exception("EOF detected"));
+					}
+					if (!mode.empty()) {
+						auto channel = this->channels[i];
+						channel->setMode(mode);
+					}
+				}
+			} catch (std::exception e) {
+				ofLogError() << e.what();
+			}
+			file.close();
 		}
 	}
 }
