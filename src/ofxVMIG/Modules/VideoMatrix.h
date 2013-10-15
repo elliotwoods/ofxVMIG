@@ -4,7 +4,7 @@
 #include "ofxCvGui/Panels/ElementHost.h"
 #include "ofxVMIG/Inspectable.h";
 
-#define VMIG_CHANNEL_COUNT 16
+#define VMIG_CHANNEL_COUNT 20
 #define VMIG_CHANNEL_SCROLL_TIME 4.0f
 #define VMIG_PREVIEW_CHANNEL 6
 #define VMIG_RECORD_CHANNEL 8

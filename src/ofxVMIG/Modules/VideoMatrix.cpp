@@ -220,7 +220,7 @@ namespace ofxVMIG {
 				float availableArea = width * height;
 				float areaPerItem = availableArea / itemCount;
 				float widthPerItem = sqrt(areaPerItem * aspect);
-				int cols = ceil(width / widthPerItem);
+				int cols = ceil(width / widthPerItem) + 1; //bit hacky to add 1
 				int rows = ceil((float) itemCount / (float) cols);
 				
 				widthPerItem = width / cols;
@@ -254,7 +254,7 @@ namespace ofxVMIG {
 			this->videoHub.setup();
 			this->videoHub.setAddress("192.168.1.19");
 			//this->videoHub.setAddress("192.168.1.96");
-			for(int i=0; i<16; i++) {
+			for(int i=0; i<VMIG_CHANNEL_COUNT; i++) {
 				auto newChannel = ofPtr<Channel>(new Channel(i));
 				this->channels.push_back(newChannel);
 				this->elementGroup->add(newChannel);
