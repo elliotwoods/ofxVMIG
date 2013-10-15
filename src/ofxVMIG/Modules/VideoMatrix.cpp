@@ -252,7 +252,8 @@ namespace ofxVMIG {
 			};
 
 			this->videoHub.setup();
-			this->videoHub.setAddress("192.168.1.96");
+			this->videoHub.setAddress("192.168.1.19");
+			//this->videoHub.setAddress("192.168.1.96");
 			for(int i=0; i<16; i++) {
 				auto newChannel = ofPtr<Channel>(new Channel(i));
 				this->channels.push_back(newChannel);
@@ -454,6 +455,24 @@ namespace ofxVMIG {
 			this->selectionB = routing[1];
 			this->selectionPreview = routing[VMIG_PREVIEW_CHANNEL];
 			this->selectionVideoWall = routing[VMIG_VIDEO_WALL_CHANNEL];
+			
+			if(this->selectionA > VMIG_CHANNEL_COUNT - 1) {
+				this->setA(0);
+			}
+
+			if(this->selectionB > VMIG_CHANNEL_COUNT - 1) {
+				this->setB(0);
+			}
+
+			if(this->selectionPreview > VMIG_CHANNEL_COUNT - 1) {
+				this->setPreview(0);
+			}
+			
+			if(this->selectionVideoWall > VMIG_CHANNEL_COUNT - 1) {
+				this->setVideoWall(0);
+			}
+
+
 		}
 
 		//----------
